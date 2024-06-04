@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Matériels</title>
+</head>
+<body>
+    <h1>Liste des Matériels</h1>
+    <a href="{% url 'index' %}">Retour à l'accueil</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Possesseur</th>
+                <th>Localisation</th>
+                <th>Détails</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for materiel in materiel_list %}
+            <tr>
+                <td>{{ materiel.name }}</td>
+                <td>{{ materiel.possesseur.prenom }} {{ materiel.possesseur.nom }}</td>
+                <td>{{ materiel.localisation }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

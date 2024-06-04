@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un Matériel</title>
+</head>
+<body>
+    <h1>Ajouter un Matériel</h1>
+    <a href="{% url 'index' %}">Retour à l'accueil</a>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enregistrer une Passation</title>
+</head>
+<body>
+    <h1>Enregistrer une Passation</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

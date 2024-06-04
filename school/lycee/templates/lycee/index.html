@@ -1,0 +1,36 @@
+<!-- lycee/templates/lycee/index.html -->
+
+{% extends 'master.html' %}
+
+{% if list %}
+    {% block title %}
+        List of programs
+    {% endblock %}
+
+    {% block content %}
+    <div class="container">
+        {% for cursus in list %}
+            <div class="row">
+                <div class="col-sm-2">
+                    <a href="{% url 'detail' cursus.id %}">{{ cursus.name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="{% url 'ajouter_enseignant' %}" class="btn btn-primary">Ajouter un enseignant</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="{% url 'ajouter_materiel' %}" class="btn btn-primary">Ajouter un matériel</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="{% url 'liste_materiel' %}" class="btn btn-primary">Liste des matériels</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+{% else %}
+    <p>No cursus to show :(</p>
+{% endif %}
